@@ -4,11 +4,11 @@ function ListNode(val, next) {
 }
 
 function mergeTwoLists(l1, l2) {
+  // creates reference to pre-head
   let l3 = new ListNode(-1);
   let curr3 = l3;
 
   while (l1 && l2) {
-
     if (l1.val <= l2.val) {
       curr3.next = l1;
       l1 = l1.next;
