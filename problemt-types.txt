@@ -1,0 +1,4 @@
+- Frequency counter
+- Multiple pointers
+- Sliding window
+- Divide and conquer (uses two pointers => O(log n) time complexity)

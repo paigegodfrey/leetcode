@@ -1,5 +1,5 @@
 function maxSubarraySum(arr, n) {
-  if(!arr.length || n > arr.length) return null;
+  if(arr.length < n) return null;
 
   let maxSum = 0;
   let sum = 0;
