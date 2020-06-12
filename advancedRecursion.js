@@ -111,7 +111,7 @@ function stringifyNumbers(obj) {
       obj[key] = obj[key].toString();
     } else {
       obj[key] = obj[key];
-    } 
+    }
   }
   return obj;
 }
@@ -124,16 +124,16 @@ function stringifyNumbers(obj, newObj = {}) {
       newObj[key] = obj[key].toString();
     } else {
       newObj[key] = obj[key];
-    } 
+    }
   }
   return newObj;
 }
 
 // Given a nested object, return an array of all the object values
 // that are strings.
-function collectStrings(obj, arr=[]) {
-  for(key in obj) {
-    if(typeof obj[key] === 'object') collectStrings(obj[key], arr);
+function collectStrings(obj, arr = []) {
+  for (key in obj) {
+    if (typeof obj[key] === 'object') collectStrings(obj[key], arr);
     else if (typeof obj[key] === 'string') arr.push(obj[key]);
   }
   return arr;
