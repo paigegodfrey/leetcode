@@ -14,4 +14,5 @@ function twoSum(nums, target) {
 //     }
 //   }
 // };
+
 console.log(...twoSum([5, 6, 7, 9], 14));
