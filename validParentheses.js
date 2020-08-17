@@ -1,18 +1,26 @@
-function isValid(s) {
-  if (s.length % 2 !== 0) return false;
+// Given a string containing just the characters '(', ')', '{', '}', '[' and ']', 
+// determine if the input string is valid.
 
-  let mapping = {
-    "(": ")", 
-    "{": "}", 
-    "[": "]"
-  }
+// An input string is valid if:
+
+// Open brackets must be closed by the same type of brackets.
+// Open brackets must be closed in the correct order.
+// Note that an empty string is also considered valid.
+
+// O(N) time
+// O(N) space
+function validParentheses(str) {
+  if (!str.length) return true;
+  if (str.length % 2 !== 0) return false;
+
+  let hash = { ')': '(', '}': '{', ']': '[' }
   let stack = [];
+  stack.push(str[0]);
 
-  for(let i = 0; i < s.length; i++) {
-    if(s[i] in mapping) stack.push(s[i]);
-    if(s[i] === mapping[stack[stack.length - 1]]) stack.pop();
+  for (let i = 1; i < str.length; i++) {
+    if (stack.length && stack[stack.length - 1] === hash[str[i]]) stack.pop();
+    else stack.push(str[i]);
   }
-  
-  if(stack.length === 0) return true;
-  return false;
-};
+
+  return stack.length ? false : true;
+}
