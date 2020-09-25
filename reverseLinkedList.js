@@ -17,5 +17,13 @@ class ListNode {
 }
 
 const reverseList = list => {
-  
+  // define current = 4
+  // define originalNext = 3
+  // define previous = 5
+
+  // iterate over linked list starting at beginning
+    // update originalNext with node.next
+    // update node.next with originalPrevious
+    // previous = current
+    // current = originalNext
 }
