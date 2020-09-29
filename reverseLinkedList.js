@@ -10,20 +10,28 @@
 // Could you implement both?
 
 class ListNode {
-  constructor(val, next) {
-    this.val = (val === undefined ? 0 : val)
-    this.next = (next === undefined ? null : next)
+  constructor(val = 0) {
+    this.val = val;
+    this.next = null;
   }
 }
 
-const reverseList = list => {
-  // define current = 4
-  // define originalNext = 3
-  // define previous = 5
+// O(n) time
+// O(1) space
+const reverseList = head => {
+  if (head == null || head.next == null) return head;
 
-  // iterate over linked list starting at beginning
-    // update originalNext with node.next
-    // update node.next with originalPrevious
-    // previous = current
-    // current = originalNext
+  let current = head;
+  let originalNext;
+  let originalPrevious;
+
+  while (current !== null) {
+    originalNext = current.next;
+    current.next = originalPrevious || null;
+    originalPrevious = current;
+    current = originalNext;
+  }
+
+  // very important not to return head
+  return originalPrevious;
 }
