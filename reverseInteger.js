@@ -17,7 +17,7 @@
 // O(n) space
 // assumes valid input
 const reverse = num => {
-  let digits = num.split(''); // ['1', '2', '3', 0'']
+  let digits = num.split('');
 
   let left = digits[0] === '-' ? 1 : 0;
   let right = digits.length - 1;
