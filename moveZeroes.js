@@ -18,7 +18,10 @@ const moveZeroes = nums => {
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 0) queue.push(i);
     else if (nums[i] !== 0) {
-      if (queue.length) nums[queue.unshift()] = nums[i];
+      if (queue.length) {
+        nums[queue.shift()] = nums[i];
+        nums[i] = 0;
+      }
     }
   }
 
