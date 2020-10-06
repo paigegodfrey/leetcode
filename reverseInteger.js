@@ -17,7 +17,9 @@
 // O(n) space
 // assumes valid input
 const reverse = num => {
-  let digits = num.split('');
+  let digits = num.toString().split('');
+  const limit = 2147483648;
+
 
   let left = digits[0] === '-' ? 1 : 0;
   let right = digits.length - 1;
@@ -32,5 +34,6 @@ const reverse = num => {
     right--;
   }
 
-  return +digits.join();
+  let output = +digits.join('');
+  return Math.abs(output) < limit ? output : 0;
 }
