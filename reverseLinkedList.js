@@ -32,6 +32,6 @@ const reverseList = head => {
     current = originalNext;
   }
 
-  // very important not to return head
+  // be mindful of what node to return
   return originalPrevious;
 }
