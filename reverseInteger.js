@@ -13,6 +13,22 @@
 // Input: 120
 // Output: 21
 
-const reverse = () => {
+// O(n) time
+// O(n) space
+const reverse = (num) => {
+  // convert number to array of digits
   
+  // define left and right variables
+    // let left = digits[0] === '-' ? 1 : 0;
+    // let right = digits.length - 1;
+    // if (digits[right] === '0') {
+      // digits.pop(); 
+      // right--;
+    // }
+
+  // iterate over digits => while left < right
+    // swap left and right
+    // increment left and decrement right
+
+  // return output as number
 }
