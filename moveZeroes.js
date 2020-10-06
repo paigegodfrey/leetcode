@@ -13,13 +13,14 @@
 // O(n) time
 // O(n) space
 const moveZeroes = nums => {
-  // define queue
+  let queue = [];
 
-  // iterate over nums
-    // if (nums[i] === 0) queue.push(i);
-    // else if (nums[i] !== 0) {
-      // if(queue.length) nums[queue.unshift()] = nums[i];
-    // }
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] === 0) queue.push(i);
+    else if (nums[i] !== 0) {
+      if (queue.length) nums[queue.unshift()] = nums[i];
+    }
+  }
 
-  // return nums
+  return nums;
 }
