@@ -13,13 +13,12 @@
 // Input: 120
 // Output: 21
 
-// O(n) time
+// O(log(x)) time => due to overflow limit
 // O(n) space
 // assumes valid input
 const reverse = num => {
   let digits = num.toString().split('');
   const limit = 2147483648;
-
 
   let left = digits[0] === '-' ? 1 : 0;
   let right = digits.length - 1;
