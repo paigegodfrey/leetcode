@@ -11,16 +11,18 @@
 // Minimize the total number of operations.
 
 // O(n) time
-// O(n) space
+// O(1) space
 const moveZeroes = nums => {
-  let queue = [];
+  let lastNonZero = 0;
 
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== 0 && queue.length) {
-      nums[queue.shift()] = nums[i];
-      nums[i] = 0;
+    if (nums[i] !== 0) {
+      if (lastNonZero < i) {
+        nums[lastNonZero] = nums[i];
+        nums[i] = 0;
+      }
+      lastNonZero++;
     }
-    if (nums[i] === 0) queue.push(i);
   }
 
   return nums;
