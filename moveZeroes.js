@@ -10,8 +10,16 @@
 // You must do this in-place without making a copy of the array.
 // Minimize the total number of operations.
 
-// O() time
-// O() space
+// O(n) time
+// O(n) space
 const moveZeroes = nums => {
-  
+  // define queue
+
+  // iterate over nums
+    // if (nums[i] === 0) queue.push(i);
+    // else if (nums[i] !== 0) {
+      // if(queue.length) nums[queue.unshift()] = nums[i];
+    // }
+
+  // return nums
 }
