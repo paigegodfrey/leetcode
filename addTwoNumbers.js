@@ -25,27 +25,31 @@
 // It is guaranteed that the list represents a number that does not have leading zeros.
 
 class ListNode {
-  constructor(val=0) {
+  constructor(val = 0) {
     this.val = val;
     this.next = next;
   }
 }
 
-// O(n) time
-// O(n) space
+// O(max(n, m)) time
+// O(max(n, m)) space
 const addTwoNumbers = (l1, l2) => {
-  let l3 = new ListNode;
+  let l3 = new ListNode(0);
+  let l3curr = l3;
   let l1curr = l1;
   let l2curr = l2;
   let sum = 0;
   let carry = 0;
-  
-  while (l1curr || l2curr) {
-    sum = l1curr + l2curr + carry;
-    l3.next = sum % 10;
-    carry = sum < 10 ? 0 : 1;
-    l1curr = l1curr.next || 0;
-    l2curr = l2curr.next || 0;
+
+  while (l1curr || l2curr || carry !== 0) {
+    let l1val = l1curr ? l1curr.val : 0;
+    let l2val = l2curr ? l2curr.val : 0;
+    sum = l1val + l2val + carry;
+    carry = Math.floor(sum / 10);
+    l3curr.next = new ListNode(sum % 10);
+    l3curr = l3curr.next;
+    if (l1curr) l1curr = l1curr.next;
+    if (l2curr) l2curr = l2curr.next;
   }
 
   return l3.next;
