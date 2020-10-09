@@ -24,6 +24,29 @@
 // 0 <= Node.val <= 9
 // It is guaranteed that the list represents a number that does not have leading zeros.
 
+class ListNode {
+  constructor(val=0) {
+    this.val = val;
+    this.next = next;
+  }
+}
+
+// O(n) time
+// O(n) space
 const addTwoNumbers = (l1, l2) => {
+  let l3 = new ListNode;
+  let l1curr = l1;
+  let l2curr = l2;
+  let sum = 0;
+  let carry = 0;
   
+  while (l1curr || l2curr) {
+    sum = l1curr + l2curr + carry;
+    l3.next = sum % 10;
+    carry = sum < 10 ? 0 : 1;
+    l1curr = l1curr.next || 0;
+    l2curr = l2curr.next || 0;
+  }
+
+  return l3.next;
 }
