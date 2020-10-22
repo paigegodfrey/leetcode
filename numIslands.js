@@ -21,6 +21,22 @@
 // ]
 // Output: 3
 
+// O(n * m) time
+// O(1) space
 const numIslands = arr => {
+  if (!arr.length) return 0;
 
+  let count = 0;
+  let top;
+  let left;
+
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      top = i - 1 >= 0 ? arr[i - 1][j] : '0';
+      left = j - 1 >= 0 ? arr[i][j - 1] : '0';
+      if (arr[i][j] === '1' && top === '0' && left === '0') count++;
+    }
+  }
+
+  return count;
 }
