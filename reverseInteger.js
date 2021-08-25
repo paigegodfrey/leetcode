@@ -13,26 +13,24 @@
 // Input: 120
 // Output: 21
 
-// O(log(x)) time => due to overflow limit
-// O(n) space
-// assumes valid input
-const reverse = num => {
-  let digits = num.toString().split('');
-  const limit = 2147483648;
+// O(n) time
+// O(1) space
+// where n = number of digits
+const reverseInteger = x => {
+  const isNegative = x < 0;
+  if (isNegative) x = Math.abs(x);
 
-  let left = digits[0] === '-' ? 1 : 0;
-  let right = digits.length - 1;
-  if (digits[right] === '0') {
-    digits.pop();
-    right--;
+  let reverse = 0;
+
+  while (x > 0) {
+    let pop = x % 10;
+    x = Math.floor(x / 10);
+    reverse = reverse * 10 + pop;
+    console.log(reverse);
+
+    // handle 32-bit integer limit
+    if (reverse > 2 ** 31 - 1) return 0;
   }
 
-  while (left < right) {
-    [digits[left], digits[right]] = [digits[right], digits[left]];
-    left++;
-    right--;
-  }
-
-  let output = +digits.join('');
-  return Math.abs(output) < limit ? output : 0;
+  return isNegative ? reverse * -1 : reverse;
 }
