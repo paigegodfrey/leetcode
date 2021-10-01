@@ -1,7 +1,7 @@
 // 13. Roman to Integer
 
 // O(1) space
-// O(n) time
+// O(1) time => because roman numerals only go up to 3999
 const romanToInt = roman => {
   let mapping = {
     "I": 1,
@@ -13,23 +13,15 @@ const romanToInt = roman => {
     "M": 1000
   }
 
-  let num = mapping[roman[0]];
+  let lastChar = roman[roman.length - 1];
+  let num = mapping[lastChar];
 
-  for (let i = 1; i < roman.length; i++) {
+  for (let i = roman.length - 2; i >= 0; i--) {
     let char = roman[i];
-    let priorChar = roman[i - 1];
+    let nextChar = roman[i + 1];
 
-    num += mapping[char];
-    if (priorChar === 'I' && (char === 'V' || char === 'X')) {
-      num -= mapping[priorChar] * 2;
-    }
-    if (priorChar === 'X' && (char === 'L' || char === 'C')) {
-      num -= mapping[priorChar] * 2;
-    }
-    if (priorChar === 'C' && (char === 'D' || char === 'M')) {
-      num -= mapping[priorChar] * 2;
-    }
-  }
+    if(mapping[char] < mapping[nextChar]) num -= mapping[char];
+    else num += mapping[char];
 
   return num;
 }
