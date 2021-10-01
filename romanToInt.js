@@ -22,6 +22,7 @@ const romanToInt = roman => {
 
     if(mapping[char] < mapping[nextChar]) num -= mapping[char];
     else num += mapping[char];
-
+  }
+  
   return num;
 }
